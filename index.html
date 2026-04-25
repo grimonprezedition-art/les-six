@@ -508,8 +508,16 @@
     .portrait-photo img {
       width: 100%; height: 100%;
       object-fit: cover;
-      object-position: top center;
+      object-position: center 20%;
     }
+
+    /* Per-portrait smart crop — face anchoring */
+    .portrait-card[data-id="leon"]    .portrait-photo img { object-position: center 15%; }
+    .portrait-card[data-id="leonore"] .portrait-photo img { object-position: center 20%; }
+    .portrait-card[data-id="leandro"] .portrait-photo img { object-position: center 10%; }
+    .portrait-card[data-id="leonie"]  .portrait-photo img { object-position: center 35%; }
+    .portrait-card[data-id="leonide"] .portrait-photo img { object-position: center 25%; }
+    .portrait-card[data-id="franco"]  .portrait-photo img { object-position: center 30%; }
 
     .card-overlay {
       position: absolute;
