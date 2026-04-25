@@ -583,11 +583,48 @@
 
     #view-profile.active { display: flex; }
 
-    /* ── Texture fond profil — bleu pâle uniforme ─────────── */
-    #view-profile.bg-profile {
+    /* ── Textures par membre — palette bleu pâle ─────────── */
+    #view-profile.bg-leon {
       background-color: #f0f4f9;
       background-image: radial-gradient(circle, #b8cce0 1px, transparent 1px);
       background-size: 20px 20px;
+    }
+    #view-profile.bg-leonore {
+      background-color: #f0f4f9;
+      background-image:
+        linear-gradient(rgba(140,175,210,0.22) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(140,175,210,0.22) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    #view-profile.bg-leandro {
+      background-color: #f0f4f9;
+      background-image: repeating-linear-gradient(
+        45deg,
+        rgba(100,150,200,0.07) 0px, rgba(100,150,200,0.07) 1px,
+        transparent 1px, transparent 10px
+      );
+    }
+    #view-profile.bg-leonie {
+      background-color: #f0f4f9;
+      background-image: repeating-linear-gradient(
+        0deg,
+        transparent, transparent 27px,
+        rgba(120,165,205,0.18) 28px
+      );
+    }
+    #view-profile.bg-leonide {
+      background-color: #f0f4f9;
+      background-image: repeating-linear-gradient(
+        -45deg,
+        rgba(100,150,200,0.07) 0px, rgba(100,150,200,0.07) 1px,
+        transparent 1px, transparent 12px
+      );
+    }
+    #view-profile.bg-franco {
+      background-color: #f0f4f9;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(120,165,205,0.1) 0px, rgba(120,165,205,0.1) 1px, transparent 1px, transparent 20px),
+        repeating-linear-gradient(90deg, rgba(120,165,205,0.1) 0px, rgba(120,165,205,0.1) 1px, transparent 1px, transparent 20px);
     }
 
     /* ── BANNER ─────────────────────────────────────────── */
@@ -2166,8 +2203,10 @@ function openProfile(id) {
     dot.classList.toggle('active', dot.dataset.member === id);
   });
 
-  // Texture de fond
-  document.getElementById('view-profile').classList.add('bg-profile');
+  // Texture de fond par membre
+  const vp2 = document.getElementById('view-profile');
+  ['leon','leonore','leandro','leonie','leonide','franco'].forEach(m => vp2.classList.remove('bg-'+m));
+  vp2.classList.add('bg-'+id);
 
   // Init slalom with this member's posts
   SLALOM.init(p.posts);
@@ -2189,7 +2228,9 @@ function closeProfile() {
   document.getElementById('accordion-btn').classList.remove('open');
 
   // Reset texture
-  document.getElementById('view-profile').classList.remove('bg-profile');
+  ['leon','leonore','leandro','leonie','leonide','franco'].forEach(m =>
+    document.getElementById('view-profile').classList.remove('bg-'+m)
+  );
 
   document.querySelectorAll('.tl-post').forEach(el => el.classList.remove('active'));
 
