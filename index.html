@@ -2164,11 +2164,14 @@ const SLALOM = {
     this.viewport.addEventListener('wheel', (e) => {
       e.preventDefault();
 
+      // Drain accumulator during animation — prevents double-skip
+      if (this.locked) { this.wheelAccum = 0; return; }
+
       this.wheelAccum += e.deltaY;
       clearTimeout(this.wheelTimer);
       this.wheelTimer = setTimeout(() => { this.wheelAccum = 0; }, 200);
 
-      if (Math.abs(this.wheelAccum) >= 40) {
+      if (Math.abs(this.wheelAccum) >= 80) {
         const dir = this.wheelAccum > 0 ? 1 : -1;
         this.wheelAccum = 0;
         this.go(dir);
