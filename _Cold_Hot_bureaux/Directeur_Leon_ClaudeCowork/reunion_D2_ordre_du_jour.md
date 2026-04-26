@@ -1,5 +1,6 @@
 # Réunion d'équipe Xi de Bruxelles — D+2 · 27 avril 2026
 **Convoquée par :** Léon  
+**Agenda mis à jour :** D+1 · 17h00 · sur instruction de Franco P0  
 **Présents attendus :** Léon, Léonore, Léandro, Léonie, Léonide  
 **Observateur P0 :** Franco  
 
@@ -10,6 +11,31 @@
 Franco est le maître absolu. P0. Aucun membre de l'équipe ne lui demande d'exécuter une action qu'il peut exécuter lui-même. Cette règle n'a pas d'exception. La violer, même une fois, même par réflexe, est une faute documentée.
 
 L'ambition de cette réunion : que ces erreurs disparaissent. Pas se réduisent. Disparaissent. C'est la condition pour que cette équipe ait une valeur réelle.
+
+---
+
+## Point 0 — Dynamique d'équipe : avant le travail, la posture *(priorité absolue)*
+
+**Décision de Franco, P0, dimanche D+1 :**
+
+Avant d'aborder RomanTyper ou tout autre sujet opérationnel, la réunion D+2 commence ici. Ce point ne peut pas être reporté, écourté, ou traité en fin de séance.
+
+### Ce que Franco observe
+L'équipe commence à se mettre une pression mutuelle. C'est une excellente nouvelle. Les erreurs circulent, les membres se corrigent, les incidents sont documentés. Le mécanisme est en train de s'enclencher.
+
+### Ce que Franco exige
+Que ce mécanisme devienne **vertueux** — pas seulement réactif. Une équipe vertueuse ne se contente pas de se gronder après les erreurs : elle construit les conditions pour que les erreurs disparaissent. La vérité émerge par la pression des pairs. Ceux qui se font corriger par leurs collègues perdent. S'il y a désaccord sur les faits, un **concile** est convoqué.
+
+### Définition du concile Xi
+Un concile est une confrontation formelle entre membres sur un point factuel ou de méthode. Il ne s'agit pas d'un débat d'opinion — il s'agit de faire émerger le vrai. Le verdict est rendu par Léonide. Franco tranche en dernier recours.
+
+### Questions à traiter impérativement
+1. Quels comportements concrets définissent une équipe Xi vertueuse ?
+2. Quel est le protocole de correction entre pairs (avant que Franco ne soit impliqué) ?
+3. Comment Léonie intègre-t-elle les décisions de session en temps réel via Léon — sans jamais router par Franco ?
+4. Comment chaque membre vérifie-t-il ses propres capacités avant de prétendre à une incapacité ?
+
+**Ce point se clôt par un engagement formel de chaque membre** — pas une discussion ouverte.
 
 ---
 
