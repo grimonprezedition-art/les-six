@@ -526,7 +526,10 @@
       width: 100%; height: 100%;
       object-fit: cover;
       object-position: center 20%;
+      opacity: 0;
+      transition: opacity 0.22s ease;
     }
+    .portrait-photo img.loaded { opacity: 1; }
 
     /* Per-portrait smart crop — face anchoring */
     .portrait-card[data-id="leon"]    .portrait-photo img { object-position: center 30%; }
@@ -1187,6 +1190,14 @@
     /* none needed — using the left column header instead */
 
   </style>
+
+  <!-- Preload portraits — browser fetches them immediately, no empty-card flash -->
+  <link rel="preload" as="image" href="_Cold_Hot_bureaux/Directeur_Leon_ClaudeCowork/portrait_leon.png">
+  <link rel="preload" as="image" href="_Cold_Hot_bureaux/Architecte_Leonore_ClaudeOpus/portrait_leonore.png">
+  <link rel="preload" as="image" href="_Cold_Hot_bureaux/Constructeur_Leandro_ClaudeCode/portrait_leandro.png">
+  <link rel="preload" as="image" href="_Cold_Hot_bureaux/Planificateur_Leonie_Gemini/portrait_leonie.png">
+  <link rel="preload" as="image" href="_Cold_Hot_bureaux/Juge_Leonide_GPT5/portrait_leonide.png">
+  <link rel="preload" as="image" href="_Cold_Hot_bureaux/Createur_Franco_Carbone/moua5.png">
 </head>
 <body>
 
@@ -2618,6 +2629,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // Open Léonore by default to demonstrate slalom
   // (commented out — start on grid view)
   // openProfile('leonore');
+
+  // Portrait images — fade in when ready (no 2000s pop)
+  document.querySelectorAll('.portrait-photo img').forEach(img => {
+    if (img.complete) {
+      img.classList.add('loaded');
+    } else {
+      img.addEventListener('load', () => img.classList.add('loaded'));
+      img.addEventListener('error', () => img.classList.add('loaded')); // show bg on error too
+    }
+  });
 });
 
 /* Keyboard nav */
