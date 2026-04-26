@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <rect width="500" height="500" fill="white"/>
+  <!-- Border double -->
+  <rect x="10" y="10" width="480" height="480" fill="white" stroke="black" stroke-width="12"/>
+  <rect x="22" y="22" width="456" height="456" fill="none" stroke="black" stroke-width="3"/>
+  <!-- Number 6 top left -->
+  <text x="40" y="88" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="900" fill="black">6</text>
+  <!-- Chinese character 析 -->
+  <text x="250" y="310" font-family="'Noto Sans CJK SC', 'Source Han Sans', 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif"
+        font-size="220" font-weight="900" fill="black" text-anchor="middle">析</text>
+  <!-- Xi symbol -->
+  <text x="250" y="390" font-family="Arial, Helvetica, sans-serif" font-size="60" font-weight="700" fill="black" text-anchor="middle">Xi</text>
+  <!-- Atomic mass -->
+  <text x="250" y="440" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="400" fill="black" text-anchor="middle">12.011</text>
+</svg>
