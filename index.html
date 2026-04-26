@@ -2107,6 +2107,10 @@ const SLALOM = {
     this.posts.forEach((post, i) => {
       if (i >= this.posts.length - 1) return;
       const next  = this.posts[i + 1];
+
+      // Skip connector between image-only and its caption — they're one visual unit
+      if (post._subtype === 'image-only' && next._isCaption) return;
+
       const ci    = i % CONN_COLORS.length;
       const color = CONN_COLORS[ci];
 
