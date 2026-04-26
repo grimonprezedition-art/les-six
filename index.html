@@ -327,7 +327,7 @@
 
     /* Facebook-style avatar — 40px like a news feed thumbnail */
     .post-avatar {
-      width: 40px; height: 40px;
+      width: 50px; height: 50px;
       border-radius: 50%;
       background: var(--bg);
       border: 1px solid var(--border2);
@@ -432,7 +432,6 @@
       height: 100%;
       display: flex;
       flex-direction: column;
-      overflow-x: auto;
     }
 
     .grid-bar {
@@ -463,9 +462,8 @@
 
     .portrait-grid {
       display: grid;
-      grid-template-columns: repeat(3, 41.67%);
+      grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(2, 1fr);
-      min-width: 125%;
       gap: 1px;
       background: var(--border2);
       flex: 1;
@@ -1031,6 +1029,20 @@
       font-size: 0.58rem;
       color: var(--muted);
       margin-left: 0.2rem;
+    }
+
+    .spost-founded-day {
+      font-family: var(--mono);
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+
+    .spost-founded-year {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      color: var(--muted);
     }
 
     .spost-model-tag {
@@ -2069,11 +2081,15 @@ const SLALOM = {
     const hours    = this._hoursFromFounding(post.d, post.time);
     const hStr     = this._formatHours(hours);
     const dateStr  = this._postDate(post.d);
+    const dateParts = dateStr.split(' ');
+    const dayMonth = dateParts.slice(0, -1).join(' ');
+    const year     = dateParts[dateParts.length - 1];
     const footer = `
       <div class="spost-footer">
         <span class="spost-founded-label">RomanTyper founded</span>
         <span class="spost-hours">${hStr}</span>
-        <span class="spost-founded-date">${dateStr}</span>
+        <span class="spost-founded-day">${dayMonth}</span>
+        <span class="spost-founded-year">${year}</span>
         <span class="spost-model-tag">${post.model}</span>
       </div>`;
 
