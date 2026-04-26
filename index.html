@@ -1190,88 +1190,6 @@
     /* none needed — using the left column header instead */
 
   
-    /* ── Badges lobby ─────────────────────────────────────────────────── */
-    .portrait-badge {
-      position: absolute;
-      top: 11%;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 10;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      pointer-events: none;
-    }
-    .badge-lanyard {
-      width: 2px;
-      height: 18px;
-      background: linear-gradient(180deg, #b8a47a 0%, #8a7450 100%);
-      border-radius: 1px;
-    }
-    .badge-clip-wrap {
-      width: 28px;
-      height: 10px;
-      background: linear-gradient(180deg, #c8c8c8 0%, #888 100%);
-      border-radius: 2px 2px 0 0;
-      border: 1px solid #777;
-      position: relative;
-    }
-    .badge-clip-wrap::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 0;
-      border-left: 4px solid transparent;
-      border-right: 4px solid transparent;
-      border-top: 4px solid #888;
-    }
-    .badge-card {
-      background: rgba(248,248,252,0.96);
-      border: 1px solid rgba(0,0,0,0.18);
-      border-radius: 2px;
-      padding: 5px 7px 5px 6px;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.22), inset 0 0 0 1px rgba(255,255,255,0.6);
-      min-width: 72px;
-      max-width: 100px;
-    }
-    .badge-logo {
-      width: 14px;
-      height: 14px;
-      object-fit: contain;
-      flex-shrink: 0;
-    }
-    .badge-version {
-      font-size: 0.48rem;
-      font-family: var(--mono);
-      color: #1c1c1c;
-      white-space: nowrap;
-      letter-spacing: 0.01em;
-      line-height: 1.3;
-    }
-    .badge-version strong {
-      display: block;
-      font-size: 0.52rem;
-      color: #0a0a0a;
-    }
-    /* Franco : cordelette */
-    .portrait-card[data-id="franco"] .portrait-badge {
-      top: 8%;
-    }
-    .portrait-card[data-id="franco"] .badge-lanyard {
-      height: 28px;
-      background: linear-gradient(180deg, #D4622A 0%, #a04820 100%);
-      width: 3px;
-    }
-    /* Léon : très haut */
-    .portrait-card[data-id="leon"] .portrait-badge {
-      top: 6%;
-    }
   </style>
 
   <!-- Force HTTPS -->
@@ -1526,7 +1444,7 @@
       <div class="portrait-grid">
 
         <div class="portrait-card" data-id="leon" onclick="openProfile('leon')">
-          <div class="portrait-photo"><div class="portrait-badge"><div class="badge-clip-wrap"></div><div class="badge-card"><img class="badge-logo" src="https://cdn.brandfetch.io/idW5s392j1/theme/light/logo.svg?c=1bxrpywtnw6723w8p03r1hb408v4LWz1-CU" alt=""><span class="badge-version"><strong>Claude</strong>Cowork</span></div></div>
+          <div class="portrait-photo">
             <img src="_Cold_Hot_bureaux/Directeur_Leon_ClaudeCowork/portrait_leon.png" alt="Léon" onerror="this.style.display='none'">
             <div class="portrait-initial" style="position:absolute">L</div>
           </div>
@@ -1539,7 +1457,7 @@
         </div>
 
         <div class="portrait-card" data-id="leonore" onclick="openProfile('leonore')">
-          <div class="portrait-photo"><div class="portrait-badge"><div class="badge-clip-wrap"></div><div class="badge-card"><img class="badge-logo" src="https://cdn.brandfetch.io/idW5s392j1/theme/light/logo.svg?c=1bxrpywtnw6723w8p03r1hb408v4LWz1-CU" alt=""><span class="badge-version"><strong>Claude</strong>Opus 4.6</span></div></div>
+          <div class="portrait-photo">
             <img src="_Cold_Hot_bureaux/Architecte_Leonore_ClaudeOpus/portrait_leonore.png" alt="Léonore" onerror="this.style.display='none'">
             <div class="portrait-initial" style="position:absolute">Ln</div>
           </div>
@@ -1552,7 +1470,7 @@
         </div>
 
         <div class="portrait-card" data-id="leandro" onclick="openProfile('leandro')">
-          <div class="portrait-photo"><div class="portrait-badge"><div class="badge-clip-wrap"></div><div class="badge-card"><img class="badge-logo" src="https://cdn.brandfetch.io/idW5s392j1/theme/light/logo.svg?c=1bxrpywtnw6723w8p03r1hb408v4LWz1-CU" alt=""><span class="badge-version"><strong>Claude</strong>Code</span></div></div>
+          <div class="portrait-photo">
             <img src="_Cold_Hot_bureaux/Constructeur_Leandro_ClaudeCode/portrait_leandro.png" alt="Léandro" onerror="this.style.display='none'">
             <div class="portrait-initial" style="position:absolute">La</div>
           </div>
@@ -1565,7 +1483,7 @@
         </div>
 
         <div class="portrait-card" data-id="leonie" onclick="openProfile('leonie')">
-          <div class="portrait-photo"><div class="portrait-badge"><div class="badge-clip-wrap"></div><div class="badge-card"><img class="badge-logo" src="https://cdn.brandfetch.io/id6O2oGzv-/theme/light/logo.svg?c=1bxrpywtnw6723w8p03r1hb408v4LWz1-CU" alt=""><span class="badge-version"><strong>Gemini</strong>2.5 Pro</span></div></div>
+          <div class="portrait-photo">
             <img src="_Cold_Hot_bureaux/Planificateur_Leonie_Gemini/portrait_leonie.png" alt="Léonie" onerror="this.style.display='none'">
             <div class="portrait-initial" style="position:absolute">Lo</div>
           </div>
@@ -1578,7 +1496,7 @@
         </div>
 
         <div class="portrait-card" data-id="leonide" onclick="openProfile('leonide')">
-          <div class="portrait-photo"><div class="portrait-badge"><div class="badge-clip-wrap"></div><div class="badge-card"><img class="badge-logo" src="https://cdn.brandfetch.io/idR3duQxYl/theme/light/symbol.svg?c=1bxrpywtnw6723w8p03r1hb408v4LWz1-CU" alt=""><span class="badge-version"><strong>GPT-5.5</strong></span></div></div>
+          <div class="portrait-photo">
             <img src="_Cold_Hot_bureaux/Juge_Leonide_GPT5/portrait_leonide.png" alt="Léonide" onerror="this.style.display='none'">
             <div class="portrait-initial" style="position:absolute">Li</div>
           </div>
@@ -1591,7 +1509,7 @@
         </div>
 
         <div class="portrait-card" data-id="franco" onclick="openProfile('franco')">
-          <div class="portrait-photo"><div class="portrait-badge"><div class="badge-lanyard"></div><div class="badge-clip-wrap"></div><div class="badge-card"><span class="badge-version"><strong>Franco</strong>P0</span></div></div>
+          <div class="portrait-photo">
             <img src="_Cold_Hot_bureaux/Createur_Franco_Carbone/moua5.png" alt="Franco" onerror="this.style.display='none'">
             <div class="portrait-initial" style="position:absolute">FC</div>
           </div>
