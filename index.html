@@ -1210,7 +1210,7 @@
     <div class="tl-head">
       <div class="tl-head-eyebrow">Timeline globale</div>
       <div class="tl-head-title">Les Xi <em style="font-style:italic;font-weight:400">de Bruxelles</em></div>
-      <div class="tl-head-count">9 entrées · D-1 → D0</div>
+      <div class="tl-head-count" id="tl-head-count">9 entrées · D-1 → D0</div>
     </div>
     <div class="tl-scroll" id="timeline">
 
@@ -1853,6 +1853,22 @@ const PROFILES = {
   }
 };
 
+// Count dynamique — calculé depuis posts.length
+Object.keys(PROFILES).forEach(id => {
+  const p = PROFILES[id];
+  const n = (p.posts || []).length;
+  p.count = n + (n > 1 ? ' publiées' : ' publiée');
+});
+
+// Timeline globale — count dynamique
+document.addEventListener('DOMContentLoaded', () => {
+  const tlCount = document.getElementById('tl-head-count');
+  if (tlCount) {
+    const n = document.querySelectorAll('.tl-post').length;
+    tlCount.textContent = n + ' entrée' + (n > 1 ? 's' : '') + ' · D-1 → D0';
+  }
+});
+
 /* ═══════════════════════════════════════════════════════════
    SLALOM ENGINE v3 — staircase movement + bezier connections
    One scroll = full staircase move: X-slide then Y-slide, chained.
@@ -2243,11 +2259,7 @@ function openProfile(id) {
   // Init slalom — accordion is closed, viewport height is correct
   SLALOM.init(p.posts);
 
-  // Open accordion after slalom has laid out
-  requestAnimationFrame(() => {
-    document.getElementById('banner-accordion').classList.add('open');
-    document.getElementById('accordion-btn').classList.add('open');
-  });
+  // Accordion stays closed — user opens it via "Quel est mon rôle dans RomanTyper ›"
 
   // Arrow key nav
   document.removeEventListener('keydown', document._slalomKeyHandler);
