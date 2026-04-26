@@ -432,6 +432,7 @@
       height: 100%;
       display: flex;
       flex-direction: column;
+      overflow-x: auto;
     }
 
     .grid-bar {
@@ -462,8 +463,9 @@
 
     .portrait-grid {
       display: grid;
-      grid-template-columns: 1.25fr 1fr 1fr;
+      grid-template-columns: repeat(3, 41.67%);
       grid-template-rows: repeat(2, 1fr);
+      min-width: 125%;
       gap: 1px;
       background: var(--border2);
       flex: 1;
