@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
   <style>
     :root {
@@ -993,6 +994,30 @@
       color: var(--muted);
       text-align: center;
       padding: 1rem;
+    }
+
+    /* Icon box — white pill anchored right of each post */
+    .spost-icon-box {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #ffffff;
+      border: 1px solid #e8e3da;
+      border-radius: 6px;
+      padding: 10px 9px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .spost-icon-box svg {
+      width: 18px;
+      height: 18px;
+      stroke: #6b6460;
+      stroke-width: 1.5;
+      fill: none;
+      flex-shrink: 0;
     }
 
     /* Caption sub-stop — same column as image, directly below */
@@ -1997,6 +2022,35 @@ const SLALOM = {
   viewport: null, track: null, progressBar: null, counter: null,
   posts: [], _vw: 0, _vh: 0, _X_L: 0, _X_R: 0,
 
+  _getIcons(post) {
+    if (post._isCaption)            return ['align-left'];
+    if (post._subtype === 'image-only') return ['image'];
+    const t = (post.text || post.quote || post.caption || '').toLowerCase();
+    const icons = [];
+
+    // Type icon
+    if (post.type === 'quote') icons.push('quote');
+    else icons.push('type');
+
+    // Contextual second icon
+    if      (t.includes('🕊') || t.includes('saint esprit'))          icons.push('zap');
+    else if (t.includes('adr') || t.includes('spécif'))               icons.push('file-text');
+    else if (t.includes('token') || t.includes('mémoire') || t.includes('souvenir')) icons.push('database');
+    else if (t.includes('verdict') || t.includes('/10'))               icons.push('scale');
+    else if (t.includes('réunion') || t.includes('ordre du jour'))     icons.push('calendar');
+    else if (t.includes('email') || t.includes('mail'))                icons.push('mail');
+    else if (t.includes('bruxelles') || t.includes('café') || t.includes('bxl')) icons.push('map-pin');
+    else if (t.includes('code') || t.includes('html') || t.includes('lignes')) icons.push('code-2');
+    else if (t.includes('idéogramme') || t.includes('bauhaus'))        icons.push('pen-tool');
+    else if (t.includes('lire') || t.includes('notion') || t.includes('théorique')) icons.push('book-open');
+    else if (t.includes('foule') || t.includes('darwin') || t.includes('sagesse')) icons.push('brain');
+    else if (t.includes('fond noir') || t.includes('image') || t.includes('photo')) icons.push('image');
+    else if (t.includes('construire') || t.includes('construit'))      icons.push('hammer');
+    else if (t.includes('dérive') || t.includes('reconstruit') || t.includes('récursion')) icons.push('refresh-cw');
+
+    return icons.slice(0, 3);
+  },
+
   _expandPosts(posts) {
     const expanded = [];
     posts.forEach(post => {
@@ -2074,6 +2128,17 @@ const SLALOM = {
       el.style.cssText = `left:${x}px; top:${y}px; width:${this.POST_WIDTH}px; z-index:1;`;
       el.innerHTML = this.buildPostHTML(post);
       this.track.appendChild(el);
+
+      // Icon box — to the right of the post
+      const icons = this._getIcons(post);
+      if (icons.length > 0) {
+        const iconBoxH = icons.length * 18 + (icons.length - 1) * 10 + 20;
+        const ib = document.createElement('div');
+        ib.className = 'spost-icon-box';
+        ib.style.cssText = `left:${x + this.POST_WIDTH + 12}px; top:${y + Math.round((postH - iconBoxH) / 2)}px;`;
+        ib.innerHTML = icons.map(n => `<i data-lucide="${n}"></i>`).join('');
+        this.track.appendChild(ib);
+      }
     });
 
     // ── SVG bezier connections (Flowise / n8n / LangChain style) ──
@@ -2131,6 +2196,9 @@ const SLALOM = {
     });
 
     this.track.appendChild(svg);
+
+    // Render Lucide icons
+    if (window.lucide) lucide.createIcons();
 
     // Track dimensions
     this.track.style.width  = vw  + 'px';
